@@ -12,15 +12,14 @@ import java.io.Serializable;
 @Table(name = "vehicles")
 public class Vehicles extends Model implements Serializable {
 
+    public static final Find<VehicleType, Vehicles> find = new Find<VehicleType, Vehicles>() {
+    };
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Enumerated(EnumType.STRING)
     private VehicleType type;
-
     private long basePrice;
-
     private String registrationNumber;
 
     public long getId() {
@@ -73,8 +72,5 @@ public class Vehicles extends Model implements Serializable {
         node.put("registrationNumber", registrationNumber);
         return node;
     }
-
-    public static final Find<VehicleType, Vehicles> find = new Find<VehicleType, Vehicles>() {
-    };
 }
 

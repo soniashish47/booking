@@ -32,7 +32,7 @@ lazy val commonSettings = Seq(
     "org.mindrot" % "jbcrypt" % "0.3m",
     "org.apache.pdfbox" % "pdfbox" % "2.0.1",
     "com.google.guava" % "guava" % "19.0",
-    "org.mockito" % "mockito-core" % "2.8.47",
+    "org.mockito" % "mockito-core" % "2.10.0" % "test",
     "io.swagger" %% "swagger-play2" % "1.5.3",
     "org.webjars" %% "webjars-play" % "2.5.0-4",
     "org.webjars" % "swagger-ui" % "2.2.0",

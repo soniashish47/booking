@@ -18,6 +18,8 @@ create table bookings (
   vehicle_id                    bigint,
   type                          varchar(9),
   user_id                       bigint,
+  start_time                    datetime(6),
+  end_time                      datetime(6),
   canceled                      tinyint(1) default 0,
   constraint ck_bookings_type check (type in ('HATCHBACK','SUV','SEDAN')),
   constraint pk_bookings primary key (booking_id)

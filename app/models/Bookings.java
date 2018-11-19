@@ -1,11 +1,11 @@
 package models;
 
 import com.avaje.ebean.Model;
-import play.libs.Time;
 import util.constant.VehicleType;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 @Entity
 @Table
@@ -27,9 +27,9 @@ public class Bookings extends Model implements Serializable {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    private Time startTime;
+    private Timestamp startTime;
 
-    private Time endTime;
+    private Timestamp endTime;
 
     private boolean canceled;
 
@@ -42,7 +42,7 @@ public class Bookings extends Model implements Serializable {
         this.canceled = canceled;
     }
 
-    public Bookings(Vehicles vehicle, VehicleType type, Users user, Time startTime, Time endTime, boolean canceled) {
+    public Bookings(Vehicles vehicle, VehicleType type, Users user, Timestamp startTime, Timestamp endTime, boolean canceled) {
         this.vehicle = vehicle;
         this.type = type;
         this.user = user;
@@ -83,19 +83,19 @@ public class Bookings extends Model implements Serializable {
         this.user = user;
     }
 
-    public Time getStartTime() {
+    public Timestamp getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public Timestamp getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
     }
 
