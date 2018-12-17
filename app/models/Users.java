@@ -1,10 +1,16 @@
 package models;
 
-import com.avaje.ebean.Model;
+
+import io.ebean.Finder;
+import io.ebean.Model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+/*Users:
+* User Model is replication of real world users
+* It contains user properties
+* */
 @Entity
 @Table
 public class Users extends Model implements Serializable {
@@ -51,6 +57,6 @@ public class Users extends Model implements Serializable {
                 '}';
     }
 
-    public static final Find<Long, Users> find = new Find<Long, Users>() {
+    public static final Finder<Long, Users> find = new Finder<Long, Users>(Users.class) {
     };
 }

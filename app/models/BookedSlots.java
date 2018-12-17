@@ -1,12 +1,21 @@
 package models;
 
-import com.avaje.ebean.Model;
+import io.ebean.Finder;
+import io.ebean.Model;
 import play.libs.Time;
 import util.constant.VehicleType;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+/*
+* BookedSlots:
+* Slots are the records to keep
+* relation between bookings and vehicles
+* keeping vehicle types in context.
+* It will only contain the bookings with booking id
+* and other details regarding vehicle and timings.
+* */
 @Entity
 @Table
 public class BookedSlots extends Model implements Serializable {
@@ -17,12 +26,13 @@ public class BookedSlots extends Model implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "slot_id")
     private long id;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "vehicle_id")
     private Vehicles vehicle;
     @Enumerated(EnumType.STRING)
     private VehicleType type;
     private Bookings booking;
+
     private Time startTime;
 
     private Time endTime;
@@ -96,6 +106,6 @@ public class BookedSlots extends Model implements Serializable {
                 '}';
     }
 
-    public static final Find<Long, BookedSlots> find = new Find<Long, BookedSlots>() {
+    public static final Finder<Long, BookedSlots> find = new Finder<Long, BookedSlots>(BookedSlots.class) {
     };
 }

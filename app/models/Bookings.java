@@ -1,12 +1,19 @@
 package models;
 
-import com.avaje.ebean.Model;
+import io.ebean.Finder;
+import io.ebean.Model;
 import util.constant.VehicleType;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+/*Booking:
+* Booking Model contain created bookings
+* it is a relation between vehicle and user
+* with start and end time for that booking.
+* If cancelled, it will be kept in this table
+* */
 @Entity
 @Table
 public class Bookings extends Model implements Serializable {
@@ -120,6 +127,6 @@ public class Bookings extends Model implements Serializable {
                 '}';
     }
 
-    public static final Find<Long, Bookings> find = new Find<Long, Bookings>() {
+    public static final Finder<Long, Bookings> find = new Finder<Long, Bookings>(Bookings.class) {
     };
 }

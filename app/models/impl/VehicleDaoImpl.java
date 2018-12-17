@@ -10,12 +10,12 @@ import java.util.List;
 public class VehicleDaoImpl implements IvehiclesDAO {
     @Override
     public Vehicles findById(Long id) {
-        return Vehicles.find.where().eq("id", id).findUnique();
+        return Vehicles.find.query().where().eq("id", id).findUnique();
     }
 
     @Override
     public List<Vehicles> findByVehicleType(VehicleType vehicleType) {
-        return Vehicles.find.where().eq("type", vehicleType).findList();
+        return Vehicles.find.query().where().eq("type", vehicleType).findList();
     }
 
     @Override

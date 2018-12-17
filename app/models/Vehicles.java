@@ -1,18 +1,24 @@
 package models;
 
-import com.avaje.ebean.Model;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import io.ebean.Finder;
+import io.ebean.Model;
 import play.libs.Json;
 import util.constant.VehicleType;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+/*Vehicle:
+* Model which define real vehicle
+* vehicle has it's properties defined in this class
+* including base price
+* */
 @Entity
 @Table(name = "vehicles")
 public class Vehicles extends Model implements Serializable {
 
-    public static final Find<VehicleType, Vehicles> find = new Find<VehicleType, Vehicles>() {
+    public static final Finder<VehicleType, Vehicles> find = new Finder<VehicleType, Vehicles>(Vehicles.class) {
     };
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

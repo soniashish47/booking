@@ -10,17 +10,17 @@ public class BookingDaoImpl implements IbookingsDAO {
 
     @Override
     public Bookings findById(Long id) {
-        return Bookings.find.where().eq("booking_id",id).findUnique();
+        return Bookings.find.query().where().eq("booking_id",id).findUnique();
     }
 
     @Override
     public List<Bookings> findByVehicleType(VehicleType vehicleType) {
-        return Bookings.find.where().eq("type",vehicleType).findList();
+        return Bookings.find.query().where().eq("type",vehicleType).findList();
     }
 
     @Override
     public List<Bookings> findByUser(long userId) {
-        return Bookings.find.where().eq("user_id",userId).findList();
+        return Bookings.find.query().where().eq("user_id",userId).findList();
     }
 
     @Override

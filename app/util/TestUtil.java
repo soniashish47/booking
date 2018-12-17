@@ -11,7 +11,7 @@ public class TestUtil {
     public static Database database;
 
     public static Map<String,String> getMapDetails(){
-        map.put("db.default.url", "jdbc:mysql://localhost/jiopay_test");
+        map.put("db.default.url", "jdbc:mysql://localhost/zoomcar_test");
         map.put("db.default.user", "root");
         map.put("db.default.password", "password");
         map.put("db.default.jndiName","DefaultDS");
